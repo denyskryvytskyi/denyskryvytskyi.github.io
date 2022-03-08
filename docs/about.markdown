@@ -10,6 +10,6 @@ Hi there, I'm Denis
 
 - Master’s in Computer Science
 
-- I’m currently working on game engine (Elven Engine) to learn more about complex systems architecture
+- I’m currently working on game engine [Elven Engine](https://github.com/kryvytskyidenys/ElvenEngine) to learn more about complex systems architecture
 
 - Also I've started my [youtube channel](https://www.youtube.com/channel/UCx90zcUS9qnt0JInGaot2IQ) about software engineering
