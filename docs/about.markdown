@@ -4,15 +4,12 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hi there, I'm Denis👋
+---
+:computer: Software Engineer at Frag Lab
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+:mortar_board: Master’s in Computer Science
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+:wrench: I’m currently working on game engine (Elven Engine) to learn more about complex systems architecture
 
-
-[jekyll-organization]: https://github.com/jekyll
+:tv: Also I've started my [youtube channel](https://www.youtube.com/channel/UCx90zcUS9qnt0JInGaot2IQ) about software engineering
