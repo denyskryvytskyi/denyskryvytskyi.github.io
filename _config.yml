@@ -30,7 +30,7 @@ github_username:  kryvytskyidenys
 linkedin_username: denyskryvytskyi
 
 # Build settings
-theme: minima
+theme: jekyll-theme-tactile
 plugins:
   - jekyll-feed
 
