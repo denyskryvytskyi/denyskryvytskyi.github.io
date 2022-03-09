@@ -3,9 +3,8 @@ layout: page
 title: About
 permalink: /about/
 ---
+<h3>Hi there, I'm Denis</h3>
 
-Hi there, I'm Denis
----
 - Software Engineer at Frag Lab
 
 - Master’s in Computer Science
