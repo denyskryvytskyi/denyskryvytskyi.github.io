@@ -75,6 +75,9 @@
 
   .page-link {
     color: $text-color;
+    &:hover {
+      color: $text-hover-color;
+    }
     line-height: $base-line-height;
     display: block;
     padding: 5px 10px;
