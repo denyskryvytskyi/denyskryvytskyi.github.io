@@ -34,10 +34,10 @@ comments: true
   <div class="pager">
     <ul class="pagination">
       {% if page.next.url %}
-        <li><a href="{{page.next.url}}" class="previous-page">&laquo; {{page.next.title}}</a></li>
+        <li><a href="{{page.next.url}}" class="previous-page">&#8592; {{page.next.title}}</a></li>
       {% endif %}
       {% if page.previous.url %}
-        <li><a href="{{page.previous.url}}" class="next-page">{{page.previous.title}} &raquo;</a></li>
+        <li><a href="{{page.previous.url}}" class="next-page">{{page.previous.title}} &#8594;</a></li>
       {% endif %}
     </ul>
   </div>
