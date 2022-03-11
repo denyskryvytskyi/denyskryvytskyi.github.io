@@ -52,6 +52,9 @@ minima:
 #header_pages:
 # - about.md
 
+disqus:
+  shortname: https-kryvytskyidenys-github-io
+
 # Build settings
 theme: minima
 
