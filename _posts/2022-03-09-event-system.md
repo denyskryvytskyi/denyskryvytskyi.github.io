@@ -1,7 +1,9 @@
 ---
 layout: post
 ---
+Test excerpt
 
+---
 
 {% highlight cpp %}
 int main()
