@@ -53,7 +53,7 @@ minima:
 # - about.md
 
 disqus:
-  shortname: https-kryvytskyidenys-github-io
+  shortname: kryvytskyidenys-github-io
 
 # Build settings
 theme: minima
