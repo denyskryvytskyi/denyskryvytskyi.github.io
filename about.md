@@ -21,6 +21,7 @@ Also I've started my [youtube channel](https://www.youtube.com/channel/UCx90zcUS
 - Foundations of Game Engine Development, Volume 1: Mathematics. by *Eric Lengyel*
 - Game Programming Algorithms and Techniques. by *Sanjay Madhav*
 - Game Coding Complete, 4th ed. by *Mike McShaffry and David Graham*
+- Learn OpenGL: Learn modern OpenGL graphics programming in a step-by-step fashion. by *Joey de Vries*
 - OpenGL Programming Guide: The Official Guide to Learning OpenGL, 9th ed. by *John Kessenich, Graham Sellers, Dave Shreiner*
 - Unity in Action, 2d ed. by *Joseph Hocking*
 
