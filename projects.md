@@ -32,6 +32,10 @@ Classic console snake game developed using some game programming patters.
 
 Classic 2d game developed in Unity engine.
 
+### Flower-farm
+*C++, Cocos2d-x*
+2D farm game developed with C++ and Cocos2d-x framework.
+
 ### Battleship
 *C++, SFML*
 
