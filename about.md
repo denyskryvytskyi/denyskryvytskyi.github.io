@@ -9,6 +9,7 @@ Hi there, my name is Denis. I'm Software Engineer at Frag Lab and Master’s in 
 I'm currently working on game engine [Elven Engine](https://github.com/kryvytskyidenys/ElvenEngine) to learn more about complex systems architecture
 
 Also I've started my [youtube channel](https://www.youtube.com/channel/UCx90zcUS9qnt0JInGaot2IQ) about software engineering
+
 ---
 
 ### My Bookshelf
