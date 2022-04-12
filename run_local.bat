@@ -1,0 +1,1 @@
+call bundle exe jekyll serve
