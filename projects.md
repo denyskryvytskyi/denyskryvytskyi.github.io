@@ -78,7 +78,7 @@ Custom math library to use in my projects, including game engine (Elven Engine).
 Reimplemented [Bullets](#bullets) project in OpenGL.
 Main purposes is tu create custom OpenGL little renderer.
 
-https://user-images.githubusercontent.com/25298585/163442368-d3297b43-6644-4074-9c87-64761ba3a0ac.mp4
+![Demo](https://user-images.githubusercontent.com/25298585/163442368-d3297b43-6644-4074-9c87-64761ba3a0ac.mp4)
 
 <h3 align="center" id="snake">Snake</h3>
 *Just C++*
