@@ -78,7 +78,9 @@ Custom math library to use in my projects, including game engine (Elven Engine).
 Reimplemented [Bullets](#bullets) project in OpenGL.
 Main purposes is tu create custom OpenGL little renderer.
 
-![Demo](https://user-images.githubusercontent.com/25298585/163442368-d3297b43-6644-4074-9c87-64761ba3a0ac.mp4)
+<video width="720" height="480" controls="controls">
+  <source src="https://user-images.githubusercontent.com/25298585/163442368-d3297b43-6644-4074-9c87-64761ba3a0ac.mp4" type="video/mp4">
+</video>
 
 <h3 align="center" id="snake">Snake</h3>
 *Just C++*
@@ -87,7 +89,9 @@ Main purposes is tu create custom OpenGL little renderer.
 
 Console snake game developed using some game programming patters and pure C++.
 
-https://user-images.githubusercontent.com/25298585/163442450-54785ec4-c6a4-45e9-ae93-47d4f28776b5.mp4
+<video width="720" height="480" controls="controls">
+  <source src="https://user-images.githubusercontent.com/25298585/163442450-54785ec4-c6a4-45e9-ae93-47d4f28776b5.mp4" type="video/mp4">
+</video>
 
 <h3 align="center" id="bullets">Bullets</h3>
 *C++, SFML*
@@ -97,7 +101,9 @@ https://user-images.githubusercontent.com/25298585/163442450-54785ec4-c6a4-45e9-
 Main purpose is to implement aabb collision and multithreading to optimize bullets creation.
 My first attempt to use multithreading to optimize many objects process in one scene.
 
-https://user-images.githubusercontent.com/25298585/163442330-23624317-b263-4b30-b8bd-060281360152.mp4
+<video width="720" height="480" controls="controls">
+  <source src="https://user-images.githubusercontent.com/25298585/163442330-23624317-b263-4b30-b8bd-060281360152.mp4" type="video/mp4">
+</video>
 
 <h3 align="center" id="space">Project Space</h3>
 *C#, Unity*
@@ -117,7 +123,9 @@ You can look a little bit fake trailer for this game:
 
 Complete 2D game developed in Unity engine.
 
-https://user-images.githubusercontent.com/25298585/163442211-6a777966-f63b-4d9e-8ac4-8fafe926a475.mp4
+<video width="720" height="480" controls="controls">
+  <source src="https://user-images.githubusercontent.com/25298585/163442211-6a777966-f63b-4d9e-8ac4-8fafe926a475.mp4" type="video/mp4">
+</video>
 
 <h3 align="center" id="unity">Unity small games</h3>
 *C#, Unity*
@@ -137,7 +145,9 @@ There are some of them:
 Developed in 5 days without previous knowledge of cocos2dx library.
 Also I've tried to use component oriented classes structure instead classic inheritance first time.
 
-https://user-images.githubusercontent.com/25298585/163442406-036cb803-de4e-4647-92d8-7eb7e3240bb7.mp4
+<video width="720" height="480" controls="controls">
+  <source src="https://user-images.githubusercontent.com/25298585/163442406-036cb803-de4e-4647-92d8-7eb7e3240bb7.mp4" type="video/mp4">
+</video>
 
 <h3 align="center" id="taskmanager">Task manager</h3>
 *Java, Spring (MVC, Data, Security), Hibernate, PostgreSQL, Bootstrap*
@@ -160,4 +170,6 @@ My first complete programming project and game developed in 2015 year.
 I have been developed it by two months knowing only basic of C++ from Herbert Schildt book.
 But code was completly refactored maybe 3 times since that and it looks more elegant for now))
 
-https://user-images.githubusercontent.com/25298585/163442276-ade2a688-689f-4cf4-9e08-e880599159a1.mp4
+<video width="720" height="480" controls="controls">
+  <source src="https://user-images.githubusercontent.com/25298585/163442276-ade2a688-689f-4cf4-9e08-e880599159a1.mp4" type="video/mp4">
+</video>
