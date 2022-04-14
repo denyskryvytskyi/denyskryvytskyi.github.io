@@ -116,6 +116,10 @@ Actually my first attempt to use AI for game engines.
 Also I have written article based on my experiments.
 You can look a little bit fake trailer for this game:
 
+<video width="720" height="480" controls="controls">
+  <source src="https://user-images.githubusercontent.com/25298585/163449028-ce7245ac-590e-4d24-a3cd-216ee6a4e772.mp4" type="video/mp4">
+</video>
+
 <h3 align="center" id="asteroids">Asteroids</h3>
 *C#, Unity*
 
