@@ -1,66 +1,29 @@
-title: Denys Kryvytskyi | Software Engineer
-author:
-  name: 2022 Denys Kryvytskyi
-  email: kryvytskyi.denys@gmail.com
-description: > # this means to ignore newlines until "show_excerpts:"
-  Hi! I'm Denys Kryvytskyi. Here you can find information about my projects.
-  Also I post articles about game development and software engineering.
+# Site Build Settings
 
-show_excerpts: true # set to true to show excerpts on the homepage
+# Jekyll-paginate-v2 configuration
+#  pagination:
+#   enabled: true
+#   per_page: 5
+#   permalink: '/page/:num/'
+#   title: ':title - page :num of :max'
+#   limit: 0
+#   sort_field: 'date'
+#   sort_reverse: true
 
-# Minima date format
-# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
-minima:
-  date_format: "%b %-d, %Y"
-  # skin: solarized
-
-  # generate social links in footer
-  social_links:
-    twitter: denyskryvytskyi
-    github:  denyskryvytskyi
-    # devto: jekyll
-    # dribbble: jekyll
-    # facebook: jekyll
-    # flickr:   jekyll
-    # instagram: jekyll
-    linkedin: denyskryvytskyi
-    # pinterest: jekyll
-    # youtube: jekyll
-    youtube_channel: UCx90zcUS9qnt0JInGaot2IQ
-    youtube_channel_name: Denys Kryvytskyi
-    # telegram: jekyll
-    # googleplus: +jekyll
-    # microdotblog: jekyll
-    # keybase: jekyll
-
-    # Mastodon instances
-    # mastodon:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-    # GitLab instances
-    # gitlab:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.md
-
-disqus:
-  shortname: kryvytskyidenys-github-io
+# jekyll-paginate configuration
+paginate:            5
 
 # Build settings
-theme: minima
+markdown:            kramdown
+highlighter:         rouge
+permalink:           /:title
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
-paginate: 5
+# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
+title:		           'Denys Kryvytskyi'
+description:	       'Software Engineer'
+author:              'Denys Kryvytskyi'
 
-plugins:
- - jekyll-feed
- - jekyll-paginate
- - jekyll-seo-tag
+# RSS 2.0 can be used instead of Atom by uncommenting following two lines
+#feed:
+#  path: rss-feed.xml

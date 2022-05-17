@@ -1,10 +1,9 @@
 ---
 layout: page
 title: Projects
-permalink: /projects/
-order: 2
+permalink: /projects
 ---
-- Currently in progress
+<!-- - Currently in progress
     - [Elven Engine](#engine)
     - [Lia](#lia)
 
@@ -25,9 +24,11 @@ order: 2
     - [Task Manager](#taskmanager)
 
 - 2015 (C++, SFML)
-    - [Battleship](#battleship)
+    - [Battleship](#battleship) 
 
 ---
+-->
+
 
 <h3 align="center" id="engine">Elven Engine</h3>
 *C++, OpenGL, ImGui, lia, cmake*
@@ -50,6 +51,8 @@ I try to minimize third party libraries usage and develop all kind of subsystems
 - Editor based on ImGui
 - Custom math library
 - Cmake configuring/building
+
+![Elven engine](../assets/img/BatchRenderer.png)
 
 
 <h3 align="center" id="lia">Lia</h3>
@@ -163,7 +166,7 @@ But this one, Task Manager, is the most complete and favorite one.
 It was developed using Spring Framework and this sublibs like MVC/Data/Security.
 It has classic admin panel, login/logout with credential validation and of course tasks actions like add/edit/delete.
 
-![Task manager main page](/demo/Taskmanager.png)
+![Task manager main page](../assets/img/Taskmanager.png)
 
 <h3 align="center" id="battleship">Battleship</h3>
 *C++, SFML*

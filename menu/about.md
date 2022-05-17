@@ -1,8 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /about/
-order: 3
+permalink: /about
 ---
 Hi there, my name is Denys.
 I'm Software Engineer at Frag Lab and Master’s in Computer Science.
