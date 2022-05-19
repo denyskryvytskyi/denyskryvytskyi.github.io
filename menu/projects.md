@@ -29,6 +29,9 @@ permalink: /projects
 ---
 -->
 
+Here you can find info about my pet projects. Maybe you'll like someting:)
+
+![Portfolio](../assets/img/Portfolio.png)
 
 <h3 align="center" id="engine">Elven Engine</h3>
 *C++, OpenGL, ImGui, lia, cmake*
