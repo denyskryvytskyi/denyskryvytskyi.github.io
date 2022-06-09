@@ -2,6 +2,15 @@
   Code
 */
 
+// changed
+
+// trick to remove left-right margin for code block
+figure {
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+//
 code,
 pre {
   font-family: $code-font-family;
