@@ -3,7 +3,7 @@ disqus:
   disqus_shortname: 'kryvytskyidenys-github-io'
 
 # If you are not using Google Analytics, please change 'google-ID' to an empty string
-google-ID: '231651108'
+google-ID: 'G-XD0P0SS5NR'
 
 menu:
 - {name: 'Posts', url: 'posts'}
