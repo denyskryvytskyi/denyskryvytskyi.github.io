@@ -4,19 +4,19 @@ title: "Event System [Game engine]"
 author: "Denys Kryvytskyi"
 categories: journal
 tags: [gameengine]
-# image: eventsystem.png
+image: event-system/preview.png
 ---
 
-Event system is one of the engine's core subsytem, because we need transfer data between different subsystems.
+Event system is one of the engine's core subsystem since we need to transfer data between different subsystems.
 
-I was thinking about making non blocking (will be described in the section below) event system with queue feature and it will have some versatility for usage.
+I was thinking about making non-blocking event system with queue feature and flexibility of use.
 
 <h2 align="center"> Brief overview </h2>
 
 Let's see what are the key parts of our event system and how they interact with each other.
 <br>
 <br>
-Firstly, I need to say that we will use some logic of publisher-subscriber pattern, but without correspond classes, just logic.
+Firstly, I need to say that we will use some logic of publisher-subscriber pattern, but without correspond classes, just their logic.
 
 So, we have the next parts:
 - Publisher. In our case - any code that send an event.
@@ -27,12 +27,12 @@ So, we have the next parts:
 Let's try to visualize Event and Manager on the class diagram.
 We will not display any "publisher" or "subscriber" classes, because they are only user-dependent.
 <p align="center">
-   <img src="../assets/img/event-system-class-diagram.png" alt="Event system class diagram">
+   <img src="../assets/img/event-system/class-diagram.png" alt="Event system class diagram">
 </p>
 
 Next step is to visualize Publisher-Manager-Subscriber interaction on sequence diagram.
 <p align="center">
-   <img src="../assets/img/event-system-sequence-diagram.png" alt="Event system sequence diagram">
+   <img src="../assets/img/event-system/sequence-diagram.png" alt="Event system sequence diagram">
 </p>
 
 <h2 align="center"> Implementation </h2>
@@ -401,7 +401,7 @@ class Window
 
 I hope you will find something interesting and useful from this post.
 I think I'll add support multithreading to event system when I'll experiment with multithreading in engine and I'll write post about it later.
-Feel free to comment and write yor thouths about my implementation.
+Feel free to comment and write yor thoughts about my implementation.
 
 Thank you!
 
