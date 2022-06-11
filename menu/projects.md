@@ -3,33 +3,8 @@ layout: page
 title: Projects
 permalink: /projects
 ---
-<!-- - Currently in progress
-    - [Elven Engine](#engine)
-    - [Lia](#lia)
-
-- 2019-2020 (C++, OpenGL)
-    - [Bulletshot](#bulletshot)
-    - [Snake](#flowerfarm)
-    - [Bullets](#bullets)
-
-- 2019 (Unity)
-    - [Project Space](#space)
-    - [Asteroids](#asteroids)
-    - [Unity small games](#unity)
-
-- 2018 (C++, Cocos2dx)
-    - [Flower farm](#flowerfarm)
-
-- 2016-2017 (Java/C#/Php years)
-    - [Task Manager](#taskmanager)
-
-- 2015 (C++, SFML)
-    - [Battleship](#battleship) 
-
----
--->
-
-Here you can find info about my pet projects. Maybe you'll like someting:)
+Here you can find info about my pet projects.
+You might be interested in something &#128512;.
 
 ![Portfolio](../assets/img/Portfolio.png)
 
@@ -50,7 +25,7 @@ I try to minimize third party libraries usage and develop all kind of subsystems
     - 2D sprite renderer
     - Shader manager (loading from files)
     - API abstraction layer to support different graphics api
-- Event system with event queue
+- Event system with events queue
 - Editor based on ImGui
 - Custom math library
 - Cmake configuring/building
@@ -82,7 +57,7 @@ Custom math library to use in my projects, including game engine (Elven Engine).
 
 2D multhithreaded simulation of simple aabb collision.
 Reimplemented [Bullets](#bullets) project in OpenGL.
-Main purposes is tu create custom OpenGL little renderer.
+Also one of the purposes was to create small custom OpenGL 2D renderer.
 
 <video width="100%" height="100%" controls="controls">
   <source src="https://user-images.githubusercontent.com/25298585/163442368-d3297b43-6644-4074-9c87-64761ba3a0ac.mp4" type="video/mp4">
@@ -117,9 +92,8 @@ My first attempt to use multithreading to optimize many objects process in one s
 [Github repo](https://github.com/denyskryvytskyi/Project-Space)
 
 Attampt to create more complex RPG-like game based on my Asteroids game.
-Also I used MLAgents toolkit to create AI enemies through deep learning.
+Also I used MLAgents toolkit to create AI enemies through reinforcement learning.
 Actually my first attempt to use AI for game engines.
-Also I have written article based on my experiments.
 You can look a little bit fake trailer for this game:
 
 <video width="100%" height="100%" controls="controls">
@@ -140,7 +114,7 @@ Complete 2D game developed in Unity engine.
 <h3 align="center" id="unity">Unity small games</h3>
 *C#, Unity*
 
-Small demo pet projects where a learned how to use Unity, including 2D and 3D projects.
+Small demo games where a learned how to use Unity, including 2D and 3D projects.
 There are some of them:
 
 [Cubetron](https://github.com/denyskryvytskyi/Cubetron)
@@ -153,7 +127,7 @@ There are some of them:
 
 2D farm game developed with C++ and Cocos2d-x framework.
 Developed in 5 days without previous knowledge of cocos2dx library.
-Also I've tried to use component oriented classes structure instead classic inheritance first time.
+Also I've tried to use component oriented classes structure instead classic inheritance.
 
 <video width="100%" height="100%" controls="controls">
   <source src="https://user-images.githubusercontent.com/25298585/163442406-036cb803-de4e-4647-92d8-7eb7e3240bb7.mp4" type="video/mp4">
@@ -166,8 +140,8 @@ Also I've tried to use component oriented classes structure instead classic inhe
 
 There are a bunch of different web pet projects developed in java and php.
 But this one, Task Manager, is the most complete and favorite one.
-It was developed using Spring Framework and this sublibs like MVC/Data/Security.
-It has classic admin panel, login/logout with credential validation and of course tasks actions like add/edit/delete.
+It was developed using Spring Framework (MVC/Data/Security).
+It has classic admin panel, login/logout with credential validation and of course tasks manager with add/edit/delete functions.
 
 ![Task manager main page](../assets/img/Taskmanager.png)
 
@@ -178,7 +152,7 @@ It has classic admin panel, login/logout with credential validation and of cours
 
 My first complete programming project and game developed in 2015 year.
 I have been developed it by two months knowing only basic of C++ from Herbert Schildt book.
-But code was completly refactored maybe 3 times since that and it looks more elegant for now))
+But code was completly refactored maybe 3 times since that and it looks more elegant for now:)
 
 <video width="100%" height="100%" controls="controls">
   <source src="https://user-images.githubusercontent.com/25298585/163442276-ade2a688-689f-4cf4-9e08-e880599159a1.mp4" type="video/mp4">
