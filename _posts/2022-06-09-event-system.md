@@ -13,16 +13,16 @@ I was thinking about making non-blocking event system with queue feature and fle
 
 <h2 align="center"> Brief overview </h2>
 
-Let's see what are the key parts of our event system and how they interact with each other.
+Let's see what are the key components of our event system and how they interact with each other.
 <br>
 <br>
 Firstly, I need to say that we will use some logic of publisher-subscriber pattern, but without correspond classes, just their logic.
 
-So, we have the next parts:
+So, we have the next components:
 - Publisher. In our case - any code that send an event.
 - Manager (bus, pool or any other name that you like). Main job - queue events and dispatch them.
 - Subscriber. Any class with subscription on event.
-- Event. User-defined class, that can be processed by manager.
+- Event. User-defined (Event interface realization) class, that can be processed by manager by uuid.
 
 Let's try to visualize Event and Manager on the class diagram.
 We will not display any "publisher" or "subscriber" classes, because they are only user-dependent.
@@ -376,7 +376,7 @@ void Camera::OnWindowResized(const WindowResizeEvent& e)
 
 <h3 align="center"> Publisher</h3>
 
-The last part of out system - publisher.
+The last component of out system - publisher.
 Actually our publisher is just send event call TriggerEvent/QueueEvent.
 
 For example, we want send window resize event from window class:
@@ -403,7 +403,7 @@ I hope you will find something interesting and useful from this post.
 I think I'll add support multithreading to event system when I'll experiment with multithreading in engine and I'll write post about it later.
 Feel free to comment and write yor thoughts about my implementation.
 
-Thank you!
+Thank you for attention!
 
 ### References
 
