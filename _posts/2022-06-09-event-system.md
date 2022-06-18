@@ -7,7 +7,7 @@ tags: [gameengine]
 image: event-system/preview.png
 ---
 
-Event system is one of the engine's core subsystem since we need to transfer data between different subsystems.
+Event system is one of the engine core subsystem since we need to transfer data between different subsystems.
 
 I was thinking about making non-blocking event system with queue feature and flexibility of use.
 
