@@ -205,7 +205,7 @@ Definition of our manager mechanism is next:
 {% highlight cpp %}
 void EventManager::Shutdown()
 {
-   for (auto event : m_eventsQueue)
+   for (auto* event : m_eventsQueue)
    {
       delete event;
    }
@@ -222,15 +222,15 @@ void EventManager::Shutdown()
    m_subscribers.clear();
 }
 
-void EventManager::Subscribe(const std::string eventId, EventCallbackWrapper* handler)
+void EventManager::Subscribe(const std::string& eventId, EventCallbackWrapper* handler)
 {
    auto subscribers = m_subscribers.find(eventId);
    if (subscribers != m_subscribers.end())
    {
       auto& handlers = subscribers->second;
-      for (auto it = handlers.begin(); it != handlers.end(); ++it)
+      for (auto& it : handlers)
       {
-         if ((*it)->getType() == handler->getType())
+         if (it->getType() == handler->getType())
          {
             EL_ASSERT(false, "Attempting to double-register callback");
             return;
@@ -244,10 +244,10 @@ void EventManager::Subscribe(const std::string eventId, EventCallbackWrapper* ha
    }
 }
 
-void EventManager::Unsubscribe(const std::string eventId, const char* handlerName)
+void EventManager::Unsubscribe(const std::string& eventId, const char* handlerName)
 {
    auto& handlers = m_subscribers[eventId];
-   for (auto it = handlers.begin(); it != handlers.end(); ++it)
+   for (auto& it = handlers.begin(); it != handlers.end(); ++it)
    {
       if ((*it)->getType() == handlerName)
       {
@@ -260,7 +260,7 @@ void EventManager::Unsubscribe(const std::string eventId, const char* handlerNam
 
 void EventManager::TriggerEvent(Event* event)
 {
-   for (auto handler : m_subscribers[event->GetEventType()])
+   for (auto& handler : m_subscribers[event->GetEventType()])
    {
       handler->exec(*event);
    }
@@ -274,7 +274,7 @@ void EventManager::QueueEvent(Event* event)
 
 void EventManager::DispatchEvents()
 {
-   for (auto eventIt = m_eventsQueue.begin(); eventIt != m_eventsQueue.end();)
+   for (auto& eventIt = m_eventsQueue.begin(); eventIt != m_eventsQueue.end();)
    {
       if (!(*eventIt)->Handled)
       {
@@ -336,11 +336,20 @@ void Camera::OnWindowResized(const WindowResizeEvent& e)
 }
 {% endhighlight %}
 
-To make it more simple, we can add member callback variable for camera class and bind it once in constructor. Also we can make macros as std::bind wrapper and send only member function as argument:
-
+To make it more simple, we can add member callback variable for camera class and bind it once in constructor. Also we can make macros for handy sending callback. You can use std::bind like this:
 {% highlight cpp %}
 #define EVENT_CALLBACK(fn) std::bind(&fn, this, std::placeholders::_1)
+{% endhighlight %}
 
+But I would personally recommend you to make it using lambda (modern approach):
+{% highlight cpp %}
+#define EVENT_CALLBACK(fn) [this](auto&& event_) { fn(std::forward<decltype(event_)>(event_)); }
+
+{% endhighlight %}
+
+So, our updated Camera class look like this:
+
+{% highlight cpp %}
 class Camera
 {
 public:
@@ -376,10 +385,10 @@ void Camera::OnWindowResized(const WindowResizeEvent& e)
 
 <h3 align="center"> Publisher</h3>
 
-The last component of out system - publisher.
-Actually our publisher is just send event call TriggerEvent/QueueEvent.
+The last component of our system - publisher.
+Actually our publisher is just a function call, TriggerEvent or QueueEvent.
 
-For example, we want send window resize event from window class:
+For example, we want send windowResizeEvent from window class:
 
 {% highlight cpp %}
 class Window
@@ -400,7 +409,7 @@ class Window
 <h3 align="center"> P.S. </h3>
 
 I hope you will find something interesting and useful from this post.
-I think I'll add support multithreading to event system when I'll experiment with multithreading in engine and I'll write post about it later.
+I think I'll add multithreading support to event system when I'll be experimenting with multithreading in the engine and I'll write post about it later.
 Feel free to comment and write yor thoughts about my implementation.
 
 Thank you for attention!
