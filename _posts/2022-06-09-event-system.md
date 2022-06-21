@@ -53,22 +53,24 @@ public:
 {% endhighlight %}
 
 The main point is that every custom Event should have unique identifier, which we will use later in our manager.
+For simplicity I'll use generated string here, but I would recommend you to hash such strings. I think I'll improve it asap.
 
 Let me to show you example of custom event:
 {% highlight cpp %}
- class WindowResizeEvent : public Event
+class WindowResizeEvent : public Event
 {
 public:
-   MouseMovedEvent(float x, float y) :
-         MouseX(x),
-         MouseY(y)
-   {}
+    WindowResizeEvent(unsigned int width, unsigned int height)
+        : Width(width)
+        , Height(height)
+    {
+    }
 
-   const std::string GetEventType() const override { return "{7CCF9526-19A3-431E-B9CB-B6AA7C775469}" };
+    const std::string GetEventType() const override { return "7CCF9526-19A3-431E-B9CB-B6AA7C775469" };
 
 public:
-   float MouseX { 0.0f };
-   float MouseY { 0.0f };
+    unsigned int Width { 0 };
+    unsigned int Height { 0 };
 };
 {% endhighlight %}
 
