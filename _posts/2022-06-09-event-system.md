@@ -82,7 +82,7 @@ Fine, now we need to make callback wrapper. It's a trick (template magic &#12851
 class EventCallbackWrapper
 {
 public:
-   void exec(Event& e)
+   void exec(const Event& e)
    {
       call(e);
    }
@@ -90,27 +90,27 @@ public:
    virtual const char* getType() const = 0;
 
 private:
-   virtual void call(Event& e) = 0;
+   virtual void call(const Event& e) = 0;
 };
 
 template<typename EventType>
-using EventFunctionHandler = std::function<void(EventType& e)>;
+using EventFunctionHandler = std::function<void(const EventType& e)>;
 
 template<typename EventType>
 class EventCallbackWrapperT : public EventCallbackWrapper
 {
 public:
-   EventCallbackWrapperT(EventFunctionHandler<EventType> callback)
+   EventCallbackWrapperT(const EventFunctionHandler<EventType>& callback)
       : functionHandler(callback)
       , functionType(functionHandler.target_type().name())
    {};
 
 private:
-   virtual void call(Event& e) override
+   virtual void call(const Event& e) override
    {
       if (e.GetEventType() == EventType::GetStaticEventType())
       {
-         functionHandler(static_cast<EventType&>(e));
+         functionHandler(static_cast<const EventType&>(e));
       }
    }
 
@@ -133,15 +133,15 @@ class EventManager
 public:
    void Shutdown();
 
-   void Subscribe(const std::string eventId, EventCallbackWrapper* handler);
-   void Unsubscribe(const std::string eventId, const char* handlerName);
-   void TriggerEvent(Event* event);
+   void Subscribe(const std::string& eventId, const std::shared_ptr<EventCallbackWrapper>& handler);
+   void Unsubscribe(const std::string& eventId, const char* handlerName);
+   void TriggerEvent(const Event& event);
    void QueueEvent(Event* event);
    void DispatchEvents();
 
 private:
    std::vector<Event*> m_eventsQueue;
-   std::unordered_map<std::string, std::vector<EventCallbackWrapper*>> m_subscribers;
+   std::unordered_map<std::string, std::vector<std::shared_ptr<EventCallbackWrapper>> m_subscribers;
 };
 
 extern EventManager gEventManager;
@@ -155,7 +155,7 @@ Also I've made useful functions to interact with Event Manager from any engine/g
 template<typename EventType>
 static void Subscribe(const EventFunctionHandler<EventType>& callback)
 {
-   EventCallbackWrapper* handler = new EventCallbackWrapperT<EventType>(callback);
+   SharedPtr<EventCallbackWrapper> handler = std::make_shared<EventCallbackWrapperT<EventType>>(callback);
 
    gEventManager.Subscribe(EventType::GetStaticEventType(), handler);
 }
@@ -167,7 +167,7 @@ static void Unsubscribe(const EventFunctionHandler<EventType>& callback)
    gEventManager.Unsubscribe(EventType::GetStaticEventType(), handlerName);
 }
 
-static void TriggerEvent(Event* triggeredEvent)
+static void TriggerEvent(const Event& triggeredEvent)
 {
    gEventManager.TriggerEvent(triggeredEvent);
 }
@@ -212,19 +212,10 @@ void EventManager::Shutdown()
       delete event;
    }
 
-   for (auto& eventSubscirbersIt = m_subscribers.begin(); eventSubscirbersIt != m_subscribers.end(); ++eventSubscirbersIt)
-   {
-      auto& handlers = eventSubscirbersIt->second;
-      for (auto& it = handlers.begin(); it != handlers.end();)
-      {
-         delete* it;
-         it = handlers.erase(it);
-      }
-   }
    m_subscribers.clear();
 }
 
-void EventManager::Subscribe(const std::string& eventId, EventCallbackWrapper* handler)
+void EventManager::Subscribe(const std::string& eventId, std::shared_ptr<EventCallbackWrapper>& handler)
 {
    auto subscribers = m_subscribers.find(eventId);
    if (subscribers != m_subscribers.end())
@@ -238,11 +229,11 @@ void EventManager::Subscribe(const std::string& eventId, EventCallbackWrapper* h
             return;
          }
       }
-      handlers.emplace_back(handler);
+      handlers.emplace_back(std::move(handler));
    }
    else
    {
-      m_subscribers[eventId].emplace_back(handler);
+      m_subscribers[eventId].emplace_back(std::move(handler));
    }
 }
 
@@ -253,20 +244,18 @@ void EventManager::Unsubscribe(const std::string& eventId, const char* handlerNa
    {
       if ((*it)->getType() == handlerName)
       {
-         delete* it;
          it = handlers.erase(it);
          return;
       }
    }
 }
 
-void EventManager::TriggerEvent(Event* event)
+void EventManager::TriggerEvent(const Event& event)
 {
    for (auto& handler : m_subscribers[event->GetEventType()])
    {
-      handler->exec(*event);
+      handler->exec(event);
    }
-   event->Handled = true;
 }
 
 void EventManager::QueueEvent(Event* event)
@@ -280,7 +269,7 @@ void EventManager::DispatchEvents()
    {
       if (!(*eventIt)->Handled)
       {
-         TriggerEvent(*eventIt);
+         TriggerEvent(**eventIt);
          eventIt = m_eventsQueue.erase(eventIt);
       }
       else
@@ -319,13 +308,13 @@ Our ctor/dtor and callback definition:
 {% highlight cpp %}
 Camera::Camera()
 {
-   auto callback = std::bind(&Camera::OnWindowResized, this, std::placeholders::_1)
+   auto callback = [this](auto&& event_) { Application::OnWindowClose(std::forward<decltype(event_)>(event_)); };
    Subscribe<WindowResizeEvent>(callback);
 }
 
 Camera::~Camera()
 {
-   auto callback = std::bind(&Camera::OnWindowResized, this, std::placeholders::_1)
+   auto callback = [this](auto&& event_) { Application::OnWindowClose(std::forward<decltype(event_)>(event_)); };
    Unsubscribe<Events::WindowResizeEvent>(m_windowResizeCallback);
 }
 
@@ -402,7 +391,7 @@ class Window
       ... code ...
 
       setWindowResizeCallback([](int width, int height){
-         TriggerEvent(new WindowResizeEvent(width, height));
+         TriggerEvent(WindowResizeEvent(width, height));
       })
    }
 }
