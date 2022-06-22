@@ -53,7 +53,7 @@ public:
 {% endhighlight %}
 
 The main point is that every custom Event should have unique identifier, which we will use later in our manager.
-For simplicity I'll use generated string here, but I would recommend you to hash such strings. I think I'll improve it asap.
+For simplicity I'll use generated string here, but I would recommend you to hash such strings. I've already added hashed strings usage to my engine, so you can check it out [here](https://github.com/denyskryvytskyi/ElvenEngine/blob/master/Engine/src/Core/StringId.h).
 
 Let me to show you example of custom event:
 {% highlight cpp %}
