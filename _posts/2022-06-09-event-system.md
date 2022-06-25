@@ -133,7 +133,7 @@ class EventManager
 public:
    void Shutdown();
 
-   void Subscribe(const std::string& eventId, const std::shared_ptr<EventCallbackWrapper>& handler);
+   void Subscribe(const std::string& eventId, const std::unique_ptr<EventCallbackWrapper>& handler);
    void Unsubscribe(const std::string& eventId, const char* handlerName);
    void TriggerEvent(const Event& event);
    void QueueEvent(Event* event);
@@ -141,7 +141,7 @@ public:
 
 private:
    std::vector<Event*> m_eventsQueue;
-   std::unordered_map<std::string, std::vector<std::shared_ptr<EventCallbackWrapper>> m_subscribers;
+   std::unordered_map<std::string, std::vector<std::unique_ptr<EventCallbackWrapper>> m_subscribers;
 };
 
 extern EventManager gEventManager;
@@ -155,7 +155,7 @@ Also I've made useful functions to interact with Event Manager from any engine/g
 template<typename EventType>
 static void Subscribe(const EventFunctionHandler<EventType>& callback)
 {
-   SharedPtr<EventCallbackWrapper> handler = std::make_shared<EventCallbackWrapperT<EventType>>(callback);
+   UniquePtr<EventCallbackWrapper> handler = std::make_unique<EventCallbackWrapperT<EventType>>(callback);
 
    gEventManager.Subscribe(EventType::GetStaticEventType(), handler);
 }
@@ -215,7 +215,7 @@ void EventManager::Shutdown()
    m_subscribers.clear();
 }
 
-void EventManager::Subscribe(const std::string& eventId, std::shared_ptr<EventCallbackWrapper>& handler)
+void EventManager::Subscribe(const std::string& eventId, std::unique_ptr<EventCallbackWrapper>& handler)
 {
    auto subscribers = m_subscribers.find(eventId);
    if (subscribers != m_subscribers.end())
