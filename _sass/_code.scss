@@ -14,6 +14,7 @@ figure {
 code,
 pre {
   font-family: $code-font-family;
+  
 }
 code {
   padding: .25em .5em;
@@ -21,17 +22,15 @@ code {
   background-color: $code-background-color;
   border-radius: 3px;
 }
+
 pre {
+  overflow: auto; /* I added this */
   display: block;
   margin-top: 0;
   margin-bottom: 1rem;
   padding: 1rem;
   font-size: .8rem;
   line-height: 1.4;
-  white-space: pre;
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
   background-color: $code-background-color;
 }
 pre code {
