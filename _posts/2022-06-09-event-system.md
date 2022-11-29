@@ -21,7 +21,7 @@ Firstly, I need to say that we will use some logic of publisher-subscriber patte
 So, we have the next components:
 - Publisher. In our case - any code that send an event.
 - Manager (bus, pool or any other name that you like). Main job - queue events and dispatch them.
-- Subscriber. Any class with subscription on event.
+- Subscriber/Handler. Just a function that can be a class member function or lambda.
 - Event. User-defined (Event interface realization) class, that can be processed by manager by uuid.
 
 Let's try to visualize Event and Manager on the class diagram.
@@ -47,7 +47,7 @@ public:
    virtual const std::string GetEventType() const = 0;
 
 public:
-   bool Handled = false;
+   bool Handled { false };
 };
 {% endhighlight %}
 
@@ -58,62 +58,65 @@ Let me to show you example of custom event:
 {% highlight cpp %}
 class WindowResizeEvent : public Event {
 public:
-    WindowResizeEvent(unsigned int width, unsigned int height)
-        : Width(width)
-        , Height(height)
+    WindowResizeEvent(unsigned int width_, unsigned int height_)
+        : width(width_)
+        , height(height_)
     {
     }
 
     const std::string GetEventType() const override { return "7CCF9526-19A3-431E-B9CB-B6AA7C775469" };
 
 public:
-    unsigned int Width { 0 };
-    unsigned int Height { 0 };
+    unsigned int width { 0 };
+    unsigned int height { 0 };
 };
 {% endhighlight %}
 
 You can make some improvements (if you want), like more convenient uuid definition or debug tostring function (you can find my code [here](https://github.com/denyskryvytskyi/ElvenEngine/blob/master/Engine/src/Events/Event.h))
 
-<h3 align="center"> Event callback </h3>
-Fine, now we need to make callback wrapper. I will use [Template Method](https://refactoring.guru/design-patterns/template-method) design pattern (template magic &#128512;) to make possibility to subscribe on different event types by callbacks with corresponding event type reference (instead of unsafe Event pointer):
+<h3 align="center"> Event handler </h3>
+Fine, now we need to implement event handler. Our handler is just a function (member function or lambda). To hold this type we will use std::function:
 {% highlight cpp %}
-class EventCallbackBase {
+template<typename EventType>
+using EventHandler = std::function<void(const EventType& e)>;
+{% endhighlight %}
+
+Let's implement event handler wrapper that will be stored in EventManager. I will use [Template Method](https://refactoring.guru/design-patterns/template-method) design pattern (template magic &#128512;) to be able to store any type of event handler with the appropriate event type reference (instead of unsafe pointer to Event):
+{% highlight cpp %}
+class EventHandlerWrapperInterface {
 public:
-    void exec(const Event& e)
+    void Exec(const Event& e)
     {
-        call(e);
+        Call(e);
     }
 
-    virtual std::string getType() const = 0;
+    virtual std::string GetType() const = 0;
 
 private:
-    virtual void call(const Event& e) = 0;
+    virtual void Call(const Event& e) = 0;
 };
 
-template<typename EventType>
-using EventFunctionHandler = std::function<void(const EventType& e)>;
+
 
 template<typename EventType>
-class EventCallback : public EventCallbackBase {
+class EventHandlerWrapper : public EventHandlerWrapperInterface {
 public:
-   EventCallback(const EventFunctionHandler<EventType>& callback)
-      : m_functionHandler(callback)
-      , m_functionType(m_functionHandler.target_type().name())
-   {};
+    explicit EventHandlerWrapper(const EventHandler<EventType>& handler)
+        : m_handler(handler)
+        , m_handlerType(m_handler.target_type().name()) {};
 
 private:
-   virtual void call(const Event& e) override
-   {
-      if (e.GetEventType() == EventType::GetStaticEventType()) {
-         m_functionHandler(static_cast<const EventType&>(e));
-      }
-   }
+    void Call(const Event& e) override
+    {
+        if (e.GetEventType() == EventType::GetStaticEventType()) {
+            m_handler(static_cast<const EventType&>(e));
+        }
+    }
 
-   virtual std::string getType() const override { return m_functionType; }
+    std::string GetType() const override { return m_handlerType; }
 
-private:
-   EventFunctionHandler<EventType> m_functionHandler;
-   const string m_functionType;
+    EventHandler<EventType> m_handler;
+    const std::string m_handlerType;
 };
 {% endhighlight %}
 
@@ -127,7 +130,7 @@ class EventManager {
 public:
    void Shutdown();
 
-   void Subscribe(const std::string& eventId, const std::unique_ptr<EventCallbackBase>&& handler);
+   void Subscribe(const std::string& eventId, const std::unique_ptr<EventHandlerWrapperInterface>&& handler);
    void Unsubscribe(const std::string& eventId, const std::string handlerName);
    void TriggerEvent(const Event& event);
    void QueueEvent(std::unique_ptr<Event>&& event);
@@ -135,7 +138,7 @@ public:
 
 private:
    std::vector<std::unique_ptr<Event>> m_eventsQueue;
-   std::unordered_map<std::string, std::vector<std::unique_ptr<EventCallbackBase>> m_subscribers;
+   std::unordered_map<std::string, std::vector<std::unique_ptr<EventHandlerWrapperInterface>> m_subscribers;
 };
 
 extern EventManager gEventManager;
@@ -147,25 +150,25 @@ Also I've made useful functions to interact with Event Manager from any engine/g
 
 {% highlight cpp %}
 template<typename EventType>
-static void Subscribe(const EventFunctionHandler<EventType>& callback)
+inline void Subscribe(const EventHandler<EventType>& callback)
 {
-   UniquePtr<EventCallbackBase> handler = std::make_unique<EventCallback<EventType>>(callback);
+   UniquePtr<EventHandlerWrapperInterface> handler = std::make_unique<EventHandlerWrapper<EventType>>(callback);
    gEventManager.Subscribe(EventType::GetStaticEventType(), std::move(handler);
 }
 
 template<typename EventType>
-static void Unsubscribe(const EventFunctionHandler<EventType>& callback)
+inline void Unsubscribe(const EventHandler<EventType>& callback)
 {
    const std::string handlerName = callback.target_type().name();
    gEventManager.Unsubscribe(EventType::GetStaticEventType(), handlerName);
 }
 
-static void TriggerEvent(const Event& triggeredEvent)
+inline void TriggerEvent(const Event& triggeredEvent)
 {
    gEventManager.TriggerEvent(triggeredEvent);
 }
 
-static void QueueEvent(UniquePtr<Event>&& queuedEvent)
+inline void QueueEvent(UniquePtr<Event>&& queuedEvent)
 {
     gEventManager.QueueEvent(std::forward<UniquePtr<Event>>(queuedEvent));
 }
@@ -203,13 +206,13 @@ void EventManager::Shutdown()
    m_subscribers.clear();
 }
 
-void EventManager::Subscribe(std::uint32_t eventId, UniquePtr<EventCallbackBase>&& handler)
+void EventManager::Subscribe(std::uint32_t eventId, UniquePtr<EventHandlerWrapperInterface>&& handler)
 {
     auto subscribers = m_subscribers.find(eventId);
     if (subscribers != m_subscribers.end()) {
         auto& handlers = subscribers->second;
         for (auto& it : handlers) {
-            if (it->getType() == handler->getType()) {
+            if (it->GetType() == handler->GetType()) {
                 EL_ASSERT(false, "Attempting to double-register callback");
                 return;
             }
@@ -224,7 +227,7 @@ void EventManager::Unsubscribe(std::uint32_t eventId, const std::string& handler
 {
     auto& handlers = m_subscribers[eventId];
     for (auto& it = handlers.begin(); it != handlers.end(); ++it) {
-        if (it->get()->getType() == handlerName) {
+        if (it->get()->GetType() == handlerName) {
             it = handlers.erase(it);
             return;
         }
@@ -234,7 +237,7 @@ void EventManager::Unsubscribe(std::uint32_t eventId, const std::string& handler
 void EventManager::TriggerEvent(const Event& event_)
 {
     for (auto& handler : m_subscribers[event_.GetEventType()]) {
-        handler->exec(event_);
+        handler->Exec(event_);
     }
 }
 
@@ -246,7 +249,7 @@ void EventManager::QueueEvent(UniquePtr<Event>&& event)
 void EventManager::DispatchEvents()
 {
     for (auto& eventIt = m_eventsQueue.begin(); eventIt != m_eventsQueue.end();) {
-        if (!eventIt->get()->Handled) {
+        if (!eventIt->get()->isHandled) {
             TriggerEvent(*eventIt->get());
             eventIt = m_eventsQueue.erase(eventIt);
         } else {
@@ -256,7 +259,7 @@ void EventManager::DispatchEvents()
 }
 {% endhighlight %}
 
-<h3 align="center">Handler</h3>
+<h3 align="center">Handler example</h3>
 
 Let's see how handler can interact with event manager.
 
@@ -275,7 +278,7 @@ public:
    void OnWindowResizeEvent(const WindowResizeEvent& e);
 
 private:
-   EventFunctionHandler<WindowResizeEvent> m_windowResizeCallback;
+   EventHandler<WindowResizeEvent> m_windowResizeHandler;
 };
 {% endhighlight %}
 
@@ -283,14 +286,14 @@ Our ctor/dtor and callback definition (we initialize std::function handler with 
 
 {% highlight cpp %}
 Camera::Camera()
-   : m_windowResizeCallback([this](const Events::WindowCloseEvent& e) { OnWindowClose(e); })
+   : m_windowResizeHandler([this](const Events::WindowCloseEvent& e) { OnWindowClose(e); })
 {
-   Subscribe<WindowResizeEvent>(m_windowResizeCallback);
+   Subscribe<WindowResizeEvent>(m_windowResizeHandler);
 }
 
 Camera::~Camera()
 {
-   Unsubscribe<WindowResizeEvent>(m_windowResizeCallback);
+   Unsubscribe<WindowResizeEvent>(m_windowResizeHandler);
 }
 
 void Camera::OnWindowResized(const WindowResizeEvent& e)
@@ -304,7 +307,7 @@ void Camera::OnWindowResized(const WindowResizeEvent& e)
 
 
 
-<h3 align="center"> Publisher</h3>
+<h3 align="center">Publisher example</h3>
 
 The last component of our system - publisher.
 Actually our publisher is just a function call, TriggerEvent or QueueEvent.
