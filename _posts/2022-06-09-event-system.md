@@ -52,7 +52,7 @@ public:
 {% endhighlight %}
 
 The main point is that every custom Event should have unique identifier, which we will use later in our manager.
-For simplicity I'll use generated string here, but I would recommend you to hash such strings. I've already added hashed strings usage to my engine, so you can check it out [here](https://github.com/denyskryvytskyi/ElvenEngine/tree/master/Engine/src/Events).
+For simplicity I will use generated string here, but I would recommend you to hash such strings. I've already added hashed strings usage to my engine, so you can check it out [here](https://github.com/denyskryvytskyi/ElvenEngine/tree/master/Engine/src/Events).
 
 Let me to show you example of custom event:
 {% highlight cpp %}
@@ -120,7 +120,7 @@ private:
 };
 {% endhighlight %}
 
-I think that the code above pretty understandable without in depth explanation. But if you stuck - don't panic, just leave a comment below and I'll try to help you.
+I think that the code above pretty understandable without in depth explanation. But if you stuck - don't panic, just leave a comment below and I will try to help you.
 
 <h3 align="center"> Event Manager </h3>
 The next code block is our event manager class:
@@ -342,7 +342,7 @@ private:
 <h3 align="center"> P.S. </h3>
 
 I hope you will find something interesting and useful from this post.
-I think I'll add multithreading support to event system when I'll be experimenting with multithreading in the engine and I'll write post about it later or expand this post with new changes and improvements.
+I think I will add multithreading support to event system when I will be experimenting with multithreading in the engine and I will write post about it later or expand this post with new changes and improvements.
 Feel free to comment and write yor thoughts about my implementation.
 
 Thank you for attention!

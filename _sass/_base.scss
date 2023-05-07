@@ -43,6 +43,16 @@ a:hover {
   border-bottom: none;
 }
 
+a.content {
+  text-decoration: none;
+  color: rgb(0, 0, 255);
+}
+
+a.content:hover {
+  text-decoration: none;
+  color: rgb(102, 102, 184);
+}
+
 img {
   max-width: 100%;
   height: auto;
