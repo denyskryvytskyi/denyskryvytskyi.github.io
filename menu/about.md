@@ -4,17 +4,17 @@ title: About
 permalink: /about
 ---
 Hi there, my name is Denys.
-I'm Software Engineer at Frag Lab and Master’s in Computer Science.
+I'm Software Engineer at Frag Lab working on <a href="https://store.steampowered.com/app/2087030/Shatterline/" target="_blank" class="content">Shatterline</a> FPS game using Lumberyard game engine.
 
-I'm currently working on game engine [Elven Engine](https://github.com/kryvytskyidenys/ElvenEngine) to learn more about game engine architecture, graphics programming and how things actually work under the hood.
+Also, I'm working on my game engine <a href="https://github.com/kryvytskyidenys/ElvenEngine" target="_blank" class="content">Elven Engine</a> to learn more about game engine architecture, graphics programming and how things actually work under the hood.
 
-Also I've started my [youtube channel](https://www.youtube.com/channel/UCx90zcUS9qnt0JInGaot2IQ) about gamedev and software engineering.
+I'm experimenting with different machine learning algorithms and try my best to make something useful.
 
 ---
 
 <h3 align="center"> My Bookshelf</h3>
 
-This is far not full list of books I read, but the best ones which I would personally recommend to read.
+This is by far not the full list of books I read, but the best ones I recommend.
 
 <h4 align="center"> Game/game engine architecture </h4>
 - Game Coding Complete, 4th ed. by *Mike McShaffry and David Graham*
@@ -33,5 +33,6 @@ This is far not full list of books I read, but the best ones which I would perso
 
 <h4 align="center"> Computer Science </h4>
 - Introduction to Algorithms, 3rd ed. by *Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein*
+- Computer Systems A Programmer’s Perspective, 3rd ed. by *Randal E. Bryant, David R. O’Hallaron*
 - Design Patters. Elements of Reusable Object-Oriented Software. by *Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides*
 - Code Complete, 2d ed. by *Steve McConnell*
