@@ -26,6 +26,10 @@ There are a lot of features I've already implemented:
 - data-driven support using json library
 - simple audio engine using irrKlang library
 
+<video width="100%" height="100%" controls="controls">
+  <source src="https://github.com/denyskryvytskyi/denyskryvytskyi.github.io/assets/25298585/700d08ef-6f58-4aba-896b-7606c10f9836" type="video/mp4">
+</video>
+
 ![engine_1](../assets/img/projects/pong.gif)
 ![engine_2](../assets/img/projects/tron.gif)
 ![engine_4](../assets/img/projects/fantasy.png)
