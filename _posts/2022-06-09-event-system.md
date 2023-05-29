@@ -4,8 +4,8 @@ title: "Event System [Game engine]"
 author: "Denys Kryvytskyi"
 categories: journal
 tags: [gameengine]
-image: event-system/preview.png
-image_featured: event-system/preview.png
+image: event-system/events.jpg
+image_featured: event-system/events.jpg
 ---
 
 Event system is one of the engine core subsystem since we need to transfer data between different subsystems.
