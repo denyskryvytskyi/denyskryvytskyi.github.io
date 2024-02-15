@@ -12,12 +12,12 @@ menu:
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
-- {icon: 'github',     link: 'https://www.github.com/denyskryvytskyi/'}
-- {icon: 'linkedin',   link: 'http://www.linkedin.com/in/denyskryvytskyi/'}
-- {icon: 'envelope',   link: 'mailto:kryvytskyi.denys@gmail.com'}
-- {icon: 'youtube',   link: 'https://www.youtube.com/channel/UCx90zcUS9qnt0JInGaot2IQ'}
-- {icon: 'twitter',    link: 'https://twitter.com/denyskryvytskyi/'}
-- {icon: 'rss-square', link: '/feed.xml'}
+- {type: brands, icon: 'github',     link: 'https://www.github.com/denyskryvytskyi/'}
+- {type: brands, icon: 'linkedin-in',   link: 'http://www.linkedin.com/in/denyskryvytskyi/'}
+- {type: solid, icon: 'envelope',   link: 'mailto:kryvytskyi.denys@gmail.com'}
+- {type: brands, icon: 'youtube',   link: 'https://www.youtube.com/@denyskryvytskyi'}
+- {type: brands, icon: 'x-twitter',    link: 'https://twitter.com/denyskryvytskyi/'}
+# - {icon: 'rss-square', link: '/feed.xml'}
 # - {icon: 'rss-square', link: '/rss-feed.xml'}
 
 # Customize site text

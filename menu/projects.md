@@ -8,23 +8,10 @@ You might be interested in something &#128512;.
 
 <h3 align="center" id="engine"><a href="https://github.com/denyskryvytskyi/ElvenEngine" target="_blank" class="content">Elven Engine</a></h3>
 
-Game engine development from scratch in C++/OpenGL.
+The game engine is developed from scratch in C++/OpenGL.
 The main purpose is to learn more about game engine architecture, graphics programming, and how things actually work under the hood.
 
-I try to minimize third-party libraries usage and develop all kinds of subsystems such as math lib, event system, renderer, ECS, etc.
-There are a lot of features I've already implemented:
-- custom math library
-- cmake configuring/building
-- platform agnostic Renderer API
-- DSA OpenGL renderer including:
-  - sprite batching rendering
-  - text rendering
-  - 2D/3D camera controllers
-- event system with events queue
-- Entity-Component system with Scene serialization
-- ImGUI based dev-panels
-- data-driven support using json library
-- simple audio engine using irrKlang library
+I try to minimize third-party libraries usage and develop all kinds of subsystems such as math library, event system, renderer, Entity-Component System, etc. from scratch.
 
 <video width="100%" height="100%" controls="controls">
   <source src="https://github.com/denyskryvytskyi/denyskryvytskyi.github.io/assets/25298585/700d08ef-6f58-4aba-896b-7606c10f9836" type="video/mp4">
@@ -32,11 +19,33 @@ There are a lot of features I've already implemented:
 
 ![engine_1](../assets/img/projects/pong.gif)
 ![engine_2](../assets/img/projects/tron.gif)
-![engine_4](../assets/img/projects/fantasy.png)
-![engine_3](../assets/img/projects/batch_wizards.gif)
 ![engine_5](../assets/img/projects/3d_cubes.gif)
 
-<h3 align="center" id="engine"><a href="https://github.com/denyskryvytskyi/jali" target="_blank" class="content">Jali</a></h3>
+<h3 align="center" id="sci-fi"><a href="https://github.com/denyskryvytskyi/ScifiShooter" target="_blank" class="content">Sci-fi shooter [Unreal Engine 5]</a></h3>
+This is a 3D shooter game created in Unreal Engine 5. The game features a level with enemies looking for the player to kill.
+<video width="100%" height="100%" controls="controls">
+  <source src="https://github.com/denyskryvytskyi/ScifiShooter/assets/25298585/756d3f4c-9117-4cc1-9274-0127b88d5281" type="video/mp4">
+</video>
+
+<h3 align="center" id="toon-tanks"><a href="https://github.com/denyskryvytskyi/ToonTanks" target="_blank" class="content">Toon Tanks [Unreal Engine 5]</a></h3>
+This is a 3D game created in Unreal Engine 5. The game features a level with enemy towers shooting a player tank.
+<video width="100%" height="100%" controls="controls">
+  <source src="https://github.com/denyskryvytskyi/ToonTanks/assets/25298585/101bc093-dabe-491b-938a-2a4a26c7461b" type="video/mp4">
+</video>
+
+<h3 align="center" id="crypt-raider"><a href="https://github.com/denyskryvytskyi/CryptRaider" target="_blank" class="content">Crypt Raider [Unreal Engine 5]</a></h3>
+This is a 3D puzzle game created in Unreal Engine 5. The game features a level with 3D puzzles where a player can grab objects and use them for the walls/doors unlocking to achieve a gold statue.
+<video width="100%" height="100%" controls="controls">
+  <source src="https://github.com/denyskryvytskyi/CryptRaider/assets/25298585/4a70f703-3f08-4a92-b4e1-b1307c17dfe3" type="video/mp4">
+</video>
+
+<h3 align="center" id="obstacle-assault"><a href="https://github.com/denyskryvytskyi/ObstacleAssault" target="_blank" class="content">Obstacle Assault [Unreal Engine 5]</a></h3>
+This is a 3D platformer game created in Unreal Engine 5. The game features a level with different moving and rotating platforms and objects that the player must use to reach the goal.
+<video width="100%" height="100%" controls="controls">
+  <source src="https://github.com/denyskryvytskyi/ObstacleAssault/assets/25298585/f87429aa-33ce-4ebe-8fa2-4f32201184e4" type="video/mp4">
+</video>
+
+<h3 align="center" id="jali"><a href="https://github.com/denyskryvytskyi/jali" target="_blank" class="content">Jali</a></h3>
 My C++ implementation of the Lox programming language interpreter following Bob Nystrom's book Crafting Interpreters.
 
 <h3 align="center" id="lia"><a href="https://github.com/denyskryvytskyi/lia" target="_blank" class="content">Lia</a></h3>
