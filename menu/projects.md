@@ -13,13 +13,12 @@ The main purpose is to learn more about game engine architecture, graphics progr
 
 I try to minimize third-party libraries usage and develop all kinds of subsystems such as math library, event system, renderer, Entity-Component System, etc. from scratch.
 
-<video width="100%" height="100%" controls="controls">
-  <source src="https://github.com/denyskryvytskyi/denyskryvytskyi.github.io/assets/25298585/700d08ef-6f58-4aba-896b-7606c10f9836" type="video/mp4">
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YhUVGp8Mb54?si=sSgAQjClKSPi9OUo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dFPBtjMHTaM?si=zYx6GrSFY6JUjhnc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ![engine_1](../assets/img/projects/pong.gif)
 ![engine_2](../assets/img/projects/tron.gif)
-![engine_5](../assets/img/projects/3d_cubes.gif)
 
 <h3 align="center" id="sci-fi"><a href="https://github.com/denyskryvytskyi/ScifiShooter" target="_blank" class="content">Sci-fi shooter [Unreal Engine 5]</a></h3>
 This is a 3D shooter game created in Unreal Engine 5. The game features a level with enemies looking for the player to kill.
