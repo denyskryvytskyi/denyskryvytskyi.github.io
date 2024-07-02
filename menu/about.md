@@ -3,8 +3,9 @@ layout: page
 title: About
 permalink: /about
 ---
-Hi there, my name is Denys.
-I'm Software Engineer at Frag Lab working on <a href="https://store.steampowered.com/app/2087030/Shatterline/" target="_blank" class="content">Shatterline</a> FPS game using Lumberyard game engine.
+Hi there, I'm Denys👋
+
+I’m Software Engineer previously worked at Frag Lab on <a href="https://store.steampowered.com/app/2087030/Shatterline/" target="_blank" class="content">Shatterline</a> (multiplayer FPS game) using the Lumberyard game engine.
 
 Also, I'm working on my game engine <a href="https://github.com/kryvytskyidenys/ElvenEngine" target="_blank" class="content">Elven Engine</a> to learn more about game engine architecture, graphics programming and how things actually work under the hood.
 
