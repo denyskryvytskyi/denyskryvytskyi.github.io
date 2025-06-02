@@ -3,9 +3,32 @@ layout: page
 title: Projects
 permalink: /projects
 ---
-Here you can find info about my pet projects.
-You might be interested in something &#128512;.
+Here you can find information about my commercial and pet projects.
+You might find something interesting &#128512;.
 
+
+<h2 align="center">Commercial</h2>
+
+<h3 align="center" id="cod"><a href="https://store.steampowered.com/app/2933620/Call_of_Duty_Black_Ops_6/" target="_blank" class="content">
+  Call of Duty: Black Ops 6
+</a>
+</h3>
+<a href="https://store.steampowered.com/app/2933620/Call_of_Duty_Black_Ops_6/" target="_blank" rel="noopener noreferrer">
+  <img src="../assets/img/projects/call-of-duty-black-ops-6.jpg" alt="Call of Duty: Black Ops 6">
+</a>
+
+<h3 align="center" id="cod"><a href="https://store.steampowered.com/app/2087030/Shatterline/" target="_blank" class="content">
+  Shatterline
+</a>
+</h3>
+<a href="https://store.steampowered.com/app/2087030/Shatterline/" target="_blank" rel="noopener noreferrer">
+  <img src="../assets/img/projects/Shatterline_1.jpg" alt="Shatterline">
+</a>
+<a href="https://store.steampowered.com/app/2087030/Shatterline/" target="_blank" rel="noopener noreferrer">
+  <img src="../assets/img/projects/Shatterline_2.jpg" alt="Shatterline">
+</a>
+
+<h2 align="center">Pet projects</h2>
 <h3 align="center" id="engine"><a href="https://github.com/denyskryvytskyi/ElvenEngine" target="_blank" class="content">Elven Engine</a></h3>
 
 The game engine is developed from scratch in C++/OpenGL.
@@ -21,26 +44,26 @@ I try to minimize third-party libraries usage and develop all kinds of subsystem
   <iframe src="https://www.youtube.com/embed/dFPBtjMHTaM?si=zYx6GrSFY6JUjhnc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-![engine_1](../assets/img/projects/pong.gif)
-![engine_2](../assets/img/projects/tron.gif)
+<!-- ![engine_1](../assets/img/projects/pong.gif)
+![engine_2](../assets/img/projects/tron.gif) -->
 
-<h3 align="center" id="sci-fi"><a href="https://github.com/denyskryvytskyi/ScifiShooter" target="_blank" class="content">Sci-fi shooter [Unreal Engine 5]</a></h3>
+<h3 align="center" id="sci-fi"><a href="https://github.com/denyskryvytskyi/ScifiShooter" target="_blank" class="content">Third-Person Shooter [Unreal Engine 5]</a></h3>
 This is a 3D shooter game created in Unreal Engine 5. The game features a level with enemies looking for the player to kill.
-<video width="100%" controls="controls">
-  <source src="https://github.com/denyskryvytskyi/ScifiShooter/assets/25298585/756d3f4c-9117-4cc1-9274-0127b88d5281" type="video/mp4">
-</video>
+<div class="youtube-video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/6Yv0Ppb8wQY?si=7WEjGW-dkRxFMKik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 <h3 align="center" id="toon-tanks"><a href="https://github.com/denyskryvytskyi/ToonTanks" target="_blank" class="content">Toon Tanks [Unreal Engine 5]</a></h3>
 This is a 3D game created in Unreal Engine 5. The game features a level with enemy towers shooting a player tank.
-<video width="100%" controls="controls">
-  <source src="https://github.com/denyskryvytskyi/ToonTanks/assets/25298585/101bc093-dabe-491b-938a-2a4a26c7461b" type="video/mp4">
-</video>
+<div class="youtube-video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/OqnVpx-66cU?si=MO5u6xbZxBfEds8U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 <h3 align="center" id="crypt-raider"><a href="https://github.com/denyskryvytskyi/CryptRaider" target="_blank" class="content">Crypt Raider [Unreal Engine 5]</a></h3>
 This is a 3D puzzle game created in Unreal Engine 5. The game features a level with 3D puzzles where a player can grab objects and use them for the walls/doors unlocking to achieve a gold statue.
-<video width="100%" controls="controls">
-  <source src="https://github.com/denyskryvytskyi/CryptRaider/assets/25298585/4a70f703-3f08-4a92-b4e1-b1307c17dfe3" type="video/mp4">
-</video>
+<div class="youtube-video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/3m2cW0WxMSg?si=1b2Z1hrYexxi5iNY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 <h3 align="center" id="obstacle-assault"><a href="https://github.com/denyskryvytskyi/ObstacleAssault" target="_blank" class="content">Obstacle Assault [Unreal Engine 5]</a></h3>
 This is a 3D platformer game created in Unreal Engine 5. The game features a level with different moving and rotating platforms and objects that the player must use to reach the goal.
