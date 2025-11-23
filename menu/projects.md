@@ -9,7 +9,15 @@ You might find something interesting &#128512;.
 
 <h2 align="center">Commercial</h2>
 
-<h3 align="center" id="cod"><a href="https://store.steampowered.com/app/2933620/Call_of_Duty_Black_Ops_6/" target="_blank" class="content">
+<h3 align="center" id="cod_bo7"><a href="https://store.steampowered.com/app/3606480/Call_of_Duty_Black_Ops_7" target="_blank" class="content">
+  Call of Duty: Black Ops 7
+</a>
+</h3>
+<a href="https://store.steampowered.com/app/3606480/Call_of_Duty_Black_Ops_7" target="_blank" rel="noopener noreferrer">
+  <img src="../assets/img/projects/call-of-duty-black-ops-7.jpg" alt="Call of Duty: Black Ops 7">
+</a>
+
+<h3 align="center" id="cod_bo6"><a href="https://store.steampowered.com/app/2933620/Call_of_Duty_Black_Ops_6/" target="_blank" class="content">
   Call of Duty: Black Ops 6
 </a>
 </h3>
@@ -17,7 +25,7 @@ You might find something interesting &#128512;.
   <img src="../assets/img/projects/call-of-duty-black-ops-6.jpg" alt="Call of Duty: Black Ops 6">
 </a>
 
-<h3 align="center" id="cod"><a href="https://store.steampowered.com/app/2087030/Shatterline/" target="_blank" class="content">
+<h3 align="center" id="shatterline"><a href="https://store.steampowered.com/app/2087030/Shatterline/" target="_blank" class="content">
   Shatterline
 </a>
 </h3>

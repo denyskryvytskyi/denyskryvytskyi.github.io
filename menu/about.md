@@ -5,7 +5,8 @@ permalink: /about
 ---
 Hi there, I'm Denys👋
 
-I’m Software Engineer working as an Engine Programmer on the <a href="https://store.steampowered.com/app/2933620/Call_of_Duty_Black_Ops_6/" target="_blank" class="content">Call of Duty: Black Ops</a> series at <a href="https://room8group.com/" target="_blank" class="content">Room 8 Group</a>. 
+I’m Software Engineer working as an Engine Programmer at Room 8 Group.
+Worked on the <a href="https://store.steampowered.com/app/1938090/Call_of_Duty" target="_blank" class="content">Call of Duty</a> series (Black Ops 6 and Black Ops 7)<a href="https://room8group.com/" target="_blank" class="content"></a>. 
 
 Previously worked at Frag Lab on <a href="https://store.steampowered.com/app/2087030/Shatterline/" target="_blank" class="content">Shatterline</a> (multiplayer FPS game) using the Lumberyard game engine.
 
